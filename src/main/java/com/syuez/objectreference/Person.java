@@ -3,6 +3,7 @@ package com.syuez.objectreference;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -14,24 +15,38 @@ public class Person {
     @Getter
     @Setter
     private int age;
-
-    @Getter
-    @Setter
     private Address address;
+    public Address getAddress() {
+        return new Address(address);
+    }
 
+    public void setAddress(Address address) {
+        this.address = new Address(address);
+    }
     /**
      * 家庭成员
      */
-    @Getter
-    @Setter
     private List<Family> families;
 
+    public List<Family> getFamilies() {
+        return new ArrayList<>(families);
+    }
+
+    public void setFamilies(List<Family> families) {
+        this.families = new ArrayList<>(families);
+    }
     /**
      * 就读过的学校
      */
-    @Getter
-    @Setter
     private List<Map<String, String>> schools;
+
+    public List<Map<String, String>> getSchools() {
+        return new ArrayList<>(schools);
+    }
+
+    public void setSchools(List<Map<String, String>> schools) {
+        this.schools = new ArrayList<>(schools);
+    }
 
     @Override
     public String toString() {
