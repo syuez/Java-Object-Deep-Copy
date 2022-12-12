@@ -4,8 +4,10 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class Person {
     @Getter
@@ -43,9 +45,13 @@ public class Person {
     public List<Map<String, String>> getSchools() {
         return new ArrayList<>(schools);
     }
-
+//    public void setSchools(List<Map<String, String>> schools) {
+//        this.schools = new ArrayList<>(schools);
+//    }
     public void setSchools(List<Map<String, String>> schools) {
-        this.schools = new ArrayList<>(schools);
+        this.schools = schools.stream()
+                .map(HashMap::new)
+                .collect(Collectors.toList());
     }
 
     @Override

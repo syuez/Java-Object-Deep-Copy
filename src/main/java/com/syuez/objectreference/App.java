@@ -54,7 +54,7 @@ public class App {
         family3.setType("嫂子");
         list.add(family3);
         person.setAge(28);
-        // 偷偷改了小学经历
+        // 小学被收购，改名字了
         primarySchool.put("小学", "清华二小");
         // 被人发现没读过大学
         schools.remove(2);
